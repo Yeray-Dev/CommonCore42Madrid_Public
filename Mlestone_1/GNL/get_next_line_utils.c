@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   get_next_line_utils.c                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: yblanco- <yblanco-@student.42madrid.com    +#+  +:+       +#+        */
+/*   By: yblanco- <yblanco-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/11 13:15:15 by yblanco-          #+#    #+#             */
-/*   Updated: 2025/02/07 18:21:47 by yblanco-         ###   ########.fr       */
+/*   Updated: 2025/02/08 19:32:12 by yblanco-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,7 +69,7 @@ char	*ft_strjoin(char *org_str, char *bff)
 	return (str);
 }
 
-char	*ft_line(char *str)
+char	*ft_line(char *str, int *rest)
 {
 	int		i;
 	char	*new_str;
@@ -82,6 +82,7 @@ char	*ft_line(char *str)
 	new_str = (char *)malloc(sizeof(char) * (i + 2));
 	if (!new_str)
 		return (NULL);
+	*rest = i;
 	i = 0;
 	while (str[i] && str[i] != '\n')
 	{
@@ -97,21 +98,18 @@ char	*ft_line(char *str)
 	return (new_str);
 }
 
-char	*ft_next_str(char *str)
+char	*ft_next_str(char *str, int *rest)
 {
 	int		i;
 	int		n;
 	char	*new_str;
 
-	i = 0;
-	while (str[i] && str[i] != '\n')
-		i++;
+	i = (*rest);
 	if (!str[i])
 	{
 		free(str);
 		return (NULL);
 	}
-
 	new_str = (char *) malloc(sizeof(char) * (ft_strlen(str) - i + 1));
 	if (!new_str)
 		return (NULL);

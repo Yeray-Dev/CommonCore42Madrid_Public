@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   get_next_line.h                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: yblanco- <yblanco-@student.42madrid.com    +#+  +:+       +#+        */
+/*   By: yblanco- <yblanco-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/11 13:17:03 by yblanco-          #+#    #+#             */
-/*   Updated: 2025/02/07 18:23:22 by yblanco-         ###   ########.fr       */
+/*   Updated: 2025/02/07 22:24:23 by yblanco-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@ char	*get_next_line(int fd);
 size_t	ft_strlen(char *s);
 char	*ft_strchr(char *s, int c);
 char	*ft_strjoin(char *org_str, char *bff);
-char	*ft_line(char *str);
-char	*ft_next_str(char *str);
+char	*ft_line(char *str, int *rest);
+char	*ft_next_str(char *str, int *rest);
 
 #endif
