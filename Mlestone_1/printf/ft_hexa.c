@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_hexa.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: yblanco- <yblanco-@student.42madrid.com    +#+  +:+       +#+        */
+/*   By: yblanco- <yblanco-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/15 09:36:51 by yblanco-          #+#    #+#             */
-/*   Updated: 2024/10/30 12:48:42 by yblanco-         ###   ########.fr       */
+/*   Updated: 2025/02/08 16:12:41 by yblanco-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,10 @@ static int	ft_hexa_count(unsigned long long number, int	*cs)
 
 	len = 0;
 	if (number == 0)
+	{
+		write(1, "0", 1);
 		(*cs) += 1;
+	}
 	while (number != 0)
 	{
 		number /= 16;
@@ -33,15 +36,16 @@ static void	ft_hexa_write(char	*hexa)
 	int		i;
 
 	i = 0;
-	while (hexa[i])
+	while (hexa && hexa[i])
 	{
 		write(1, &hexa[i], 1);
 		i++;
 	}
-	free (hexa);
+	free(hexa);
+	hexa = NULL;
 }
 
-void	*ft_hexa(unsigned int number, char type, int	*cs)
+void	*ft_hexa(unsigned long long number, char type, int	*cs)
 {
 	int		len;
 	int		aux;
@@ -50,10 +54,10 @@ void	*ft_hexa(unsigned int number, char type, int	*cs)
 	len = ft_hexa_count(number, cs);
 	aux = 0;
 	hexa = malloc((len + 1) * sizeof(char));
+	if (!hexa)
+		return (0);
 	hexa[len] = '\0';
-	if (number == 0)
-		hexa[0] = '0';
-	while (len > 0)
+	while (number && len > 0)
 	{
 		aux = number % 16;
 		if (aux < 10)
@@ -99,6 +103,12 @@ void	*ft_hexa_ptr(unsigned long long number, char type, int	*cs)
 
 void	*ft_hexa_pointer(unsigned long long pointer, int *cs)
 {
+	if (pointer == 0)
+	{
+		write(1, "(nil)", 5);
+		(*cs) += 5;
+		return (0);
+	}
 	write(1, "0", 1);
 	write(1, "x", 1);
 	(*cs) += 2;

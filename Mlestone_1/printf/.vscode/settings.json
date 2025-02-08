@@ -1,0 +1,6 @@
+{
+	"files.associations": {
+		"iostream": "cpp",
+		"ft_printf.h": "c"
+	}
+}

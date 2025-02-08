@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_redirect.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: yblanco- <yblanco-@student.42madrid.com    +#+  +:+       +#+        */
+/*   By: yblanco- <yblanco-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/14 09:22:01 by yblanco-          #+#    #+#             */
-/*   Updated: 2024/11/01 16:33:32 by yblanco-         ###   ########.fr       */
+/*   Updated: 2025/02/08 15:52:32 by yblanco-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,7 +42,6 @@ static void	ft_itoa_unsigned(unsigned int n, int	*cs)
 	number = (char *)ft_calloc(count + 1, sizeof(char));
 	if (number == NULL)
 		return ;
-
 	while (count-- != 0)
 	{
 		number[count] = new_n % 10 + '0';
@@ -89,17 +88,17 @@ void	ft_print_special(char type, va_list *args, int *cs)
 
 	if (type == 'u')
 	{
-		unsigned_number = va_arg(*args, unsigned int);
+		unsigned_number = va_arg(*args, unsigned long int);
 		ft_itoa_unsigned(unsigned_number, cs);
 	}
 	else if (type == 'x')
 	{
-		unsigned_number = va_arg(*args, int);
+		unsigned_number = va_arg(*args, unsigned long long int);
 		ft_hexa(unsigned_number, type, cs);
 	}
 	else if (type == 'X')
 	{
-		unsigned_number = va_arg(*args, int);
+		unsigned_number = va_arg(*args, unsigned long long int);
 		ft_hexa(unsigned_number, type, cs);
 	}
 	else if (type == '%')
@@ -108,7 +107,3 @@ void	ft_print_special(char type, va_list *args, int *cs)
 		(*cs)++;
 	}
 }
-
-
-
-
