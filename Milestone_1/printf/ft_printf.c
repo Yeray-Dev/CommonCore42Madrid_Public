@@ -3,14 +3,25 @@
 /*                                                        :::      ::::::::   */
 /*   ft_printf.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
+<<<<<<< HEAD
 /*   By: yblanco- <yblanco-@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/07 13:49:50 by yblanco-          #+#    #+#             */
 /*   Updated: 2025/01/19 12:38:47 by yblanco-         ###   ########.fr       */
+=======
+/*   By: yblanco- <yblanco-@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2024/10/07 13:49:50 by yblanco-          #+#    #+#             */
+/*   Updated: 2025/02/08 15:45:19 by yblanco-         ###   ########.fr       */
+>>>>>>> 77ac9b5dc78f984c53c393953b93388882fab905
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
+<<<<<<< HEAD
+=======
+#include <limits.h>
+>>>>>>> 77ac9b5dc78f984c53c393953b93388882fab905
 
 static void	ft_print_type(char type, va_list *args, int *cs)
 {
@@ -39,7 +50,10 @@ int	ft_printf(char const *format, ...)
 
 	va_list (args);
 	va_start (args, format);
+<<<<<<< HEAD
 
+=======
+>>>>>>> 77ac9b5dc78f984c53c393953b93388882fab905
 	i = 0;
 	cs = malloc(sizeof(int) * 1);
 	*cs = 0;
@@ -52,13 +66,19 @@ int	ft_printf(char const *format, ...)
 			write(1, &format[i], 1);
 			(*cs)++;
 		}
+<<<<<<< HEAD
 		i++;
+=======
+		if (format[i])
+			i++;
+>>>>>>> 77ac9b5dc78f984c53c393953b93388882fab905
 	}
 	va_end(args);
 	i = cs[0];
 	free(cs);
 	return (i);
 }
+<<<<<<< HEAD
 
 // int	main(void)
 // {
@@ -155,3 +175,5 @@ int	ft_printf(char const *format, ...)
 // system("leaks -q a.out");
 // return (0);
 // }
+=======
+>>>>>>> 77ac9b5dc78f984c53c393953b93388882fab905

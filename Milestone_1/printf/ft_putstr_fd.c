@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_putstr_fd.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: yblanco- <yblanco-@student.42madrid.com    +#+  +:+       +#+        */
+/*   By: yblanco- <yblanco-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/04 13:51:54 by yblanco-          #+#    #+#             */
-/*   Updated: 2024/11/01 17:29:42 by yblanco-         ###   ########.fr       */
+/*   Updated: 2025/02/08 15:51:01 by yblanco-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,6 @@ void	ft_putstr_fd(char *s, int fd, int	*cs)
 	{
 		write (1, "(null)", 6);
 		(*cs) += 6;
-
 		return ;
 	}
 	i = 0;
@@ -31,11 +30,3 @@ void	ft_putstr_fd(char *s, int fd, int	*cs)
 		(*cs)++;
 	}
 }
-/*
-int main()
-{
-	char *test1 = "Hola Mundo!";
-	ft_putstr_fd(test1, 1);
-	return 0;
-}
-*/

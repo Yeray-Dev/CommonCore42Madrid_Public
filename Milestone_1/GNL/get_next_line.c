@@ -3,15 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   get_next_line.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: yblanco- <yblanco-@student.42madrid.com    +#+  +:+       +#+        */
+/*   By: yblanco- <yblanco-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/11 10:28:38 by yblanco-          #+#    #+#             */
-/*   Updated: 2025/02/07 18:21:23 by yblanco-         ###   ########.fr       */
+/*   Updated: 2025/02/08 19:36:22 by yblanco-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "get_next_line.h"
-
 
 char	*ft_read(int fd, char *str)
 {
@@ -42,13 +41,17 @@ char	*get_next_line(int fd)
 {
 	char		*line;
 	static char	*str;
+	int			*rest;
 
 	if (fd < 0 || BUFFER_SIZE <= 0)
 		return (0);
 	str = ft_read(fd, str);
 	if (!str)
 		return (0);
-	line = ft_line(str);
-	str = ft_next_str(str);
+	rest = malloc((sizeof(int) * 1));
+	*rest = 0;
+	line = ft_line(str, rest);
+	str = ft_next_str(str, rest);
+	free(rest);
 	return (line);
 }

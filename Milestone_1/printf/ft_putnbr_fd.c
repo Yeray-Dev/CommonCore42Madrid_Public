@@ -3,16 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   ft_putnbr_fd.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: yblanco- <yblanco-@student.42madrid.com    +#+  +:+       +#+        */
+/*   By: yblanco- <yblanco-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/04 13:47:23 by yblanco-          #+#    #+#             */
-/*   Updated: 2024/10/30 09:04:07 by yblanco-         ###   ########.fr       */
+/*   Updated: 2025/02/08 15:50:16 by yblanco-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-int is_min(int n, int fd, int *cs)
+int	is_min(int n, int fd, int *cs)
 {
 	if (n == -2147483648)
 	{
@@ -21,7 +21,6 @@ int is_min(int n, int fd, int *cs)
 		return (0);
 	}
 	return (1);
-	
 }
 
 void	ft_putnbr_fd(int n, int fd, int *cs)
@@ -29,7 +28,7 @@ void	ft_putnbr_fd(int n, int fd, int *cs)
 	int		i;
 	int		count;
 	char	*number;
-	
+
 	i = 0;
 	count = 0;
 	if (!is_min(n, fd, cs))
@@ -48,12 +47,3 @@ void	ft_putnbr_fd(int n, int fd, int *cs)
 	free(number);
 	(*cs) += (i + count);
 }
-
-
-
-
-// int main()
-// {
-// 	ft_putnbr_fd(-7483648,  1);
-// 	return 0;
-// }
